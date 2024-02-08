@@ -2,7 +2,7 @@ import pygame
 from colores import *
 
 ANCHO = 300
-ALTO = 400
+ALTO = 300
 ANCHO_RAYA = 100
 TAMANO = (ANCHO, ALTO)
 NOMBRE = "Tres en raya"
@@ -26,6 +26,21 @@ def dibujar_x():
 
 def dibujar_o():
     pygame.draw.circle(VENTANA,color =getColor("BLANCO"),width=3,start_pos=(0,0),end_pos=(100,100))
+
+def posiciones_o():
+    posiciones = [  [[1,2,3],
+                    [4,5,6],
+                    [7,8,9]],
+
+                    [   [50,150,250],
+                        [],
+                        []],
+
+
+                    [   [50,50,50]
+                        [],
+                        []]
+
 
 pygame.display.update()
 dibujar_tabla()
