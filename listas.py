@@ -3,7 +3,7 @@ lista = [1,2,3,4,5]
 for elem in lista:
     print(elem)
 
-print("\nLISTA")
+print("\nLISTA BIDIIONAL")
 
 lista_bidim = [[1,2,3,4,5],
                 [6,7,8,9,10],
