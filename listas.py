@@ -1,36 +1,28 @@
-lista = [1,2,3,4,5]
+# Escribe tu código aquí :-)
+def f(lista):
+    lista[0] = 9
 
-for elem in lista:
-    print(elem)
+def g(lista):
+    lista2 = list()
+    for i in lista:
+        lista2.append(i)
 
-print("\nLISTA BIDIIONAL")
-
-lista_bidim = [[1,2,3,4,5],
-                [6,7,8,9,10],
-                [11,12,13],
-                [14,15]]
-
-for lista in lista_bidim:
-    print("\nElementos de", lista)
-    for elem in lista:
-        print(elem)
-
-print("ELEMEMTO", lista_bidim[1][2])
-
-print("\nLISTA TRIDIMENSIONAL") #cubo
-
-lista_tridim = [[   [1,2,3],
-                    [4,5,6],
-                    [7,8,9]],
-
-                [   [10,11,12],
-                    [13,14,15],
-                    [16,17,18]],
-
-                [   [19,20,21],
-                    [22,23,24],
-                    [25,26,27]]     ]
+    lista2[0] = 9
 
 
-print(lista_tridim[0][0][2])
-print(lista_tridim[1][1][0])
+l = [1,2,3,4]
+print(l)
+f(l)
+print(l)
+
+l = [1,2,3,4]
+print(l)
+f(l)
+print(l)
+
+
+lista = l
+
+lista.append(90)
+print(lista)
+print(l)
