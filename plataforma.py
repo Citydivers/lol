@@ -1,15 +1,15 @@
-def constructor(color, ancho, alto, x, y, estado):
-    bloque = {"tipo": "bloque"}
-    setColor(bloque, color)
-    setAlto(bloque, alto)
-    setAncho(bloque, ancho)
-    setX(bloque, x)
-    setY(bloque, y)
-    setEstado(bloque, estado)
-    return bloque
+def constructor(color, ancho, alto, x, y, velocidad):
+    plataforma = {"tipo": "plataforma"}
+    setColor(plataforma, color)
+    setAlto(plataforma, alto)
+    setAncho(plataforma, ancho)
+    setX(plataforma, x)
+    setY(plataforma, y)
+    setVelocidad(plataforma, velocidad)
+    return plataforma
 
 def checkTipo(objeto):
-    if "tipo" in objeto and objeto["tipo"] == "bloque":
+    if "tipo" in objeto and objeto["tipo"] == "plataforma":
         return True
     return False
 
@@ -115,19 +115,21 @@ def setY(objeto, nuevoY):
     else:
         print("El objeto pasado no tiene tipo.")
 
-def getEstado(objeto):
+def getVelocidad(objeto):
     if checkTipo(objeto):
-        return objeto["estado"]
+        return objeto["velocidad"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen estado.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen velocidad.")
     else:
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setEstado(objeto, nuevoEstado):
-    if checkTipo(objeto):
-        objeto["estado"] = nuevoEstado
+def setVelocidad(objeto, nuevaVelocidad):
+    if checkTipo(objeto) and type(nuevaVelocidad) == int and nuevaVelocidad >= 0:
+        objeto["velocidad"] = nuevaVelocidad
+    elif not(type(nuevaVelocidad) == int and nuevaVelocidad >= 0):
+        print("La velocidad debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen estado.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen velocidad.")
     else:
         print("El objeto pasado no tiene tipo.")

@@ -1,15 +1,14 @@
-def constructor(color, ancho, alto, x, y, estado):
-    bloque = {"tipo": "bloque"}
-    setColor(bloque, color)
-    setAlto(bloque, alto)
-    setAncho(bloque, ancho)
-    setX(bloque, x)
-    setY(bloque, y)
-    setEstado(bloque, estado)
-    return bloque
+def constructor(color, radio, x, y, velocidad):
+    pelota = {"tipo": "pelota"}
+    setColor(pelota, color)
+    setRadio(pelota, radio)
+    setX(pelota, x)
+    setY(pelota, y)
+    setVelocidad(pelota, velocidad)
+    return pelota
 
 def checkTipo(objeto):
-    if "tipo" in objeto and objeto["tipo"] == "bloque":
+    if "tipo" in objeto and objeto["tipo"] == "pelota":
         return True
     return False
 
@@ -39,41 +38,22 @@ def setColor(objeto, nuevo_color):
     else:
         print("El objeto pasado no tiene tipo.")
 
-def getAncho(objeto):
+def getRadio(objeto):
     if checkTipo(objeto):
-        return objeto["ancho"]
+        return objeto["radio"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen ancho.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen radio.")
     else:
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setAncho(objeto, nuevoAncho):
-    if checkTipo(objeto) and type(nuevoAncho) == int and nuevoAncho >= 0:
-        objeto["ancho"] = nuevoAncho
-    elif not(type(nuevoAncho) == int and nuevoAncho >= 0):
-        print("El ancho debe ser un valor entero positivo")
+def setRadio(objeto, nuevoRadio):
+    if checkTipo(objeto) and type(nuevoRadio) == int and nuevoRadio >= 0:
+        objeto["radio"] = nuevoRadio
+    elif not(type(nuevoRadio) == int and nuevoRadio >= 0):
+        print("El radio debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen ancho.")
-    else:
-        print("El objeto pasado no tiene tipo.")
-
-def getAlto(objeto):
-    if checkTipo(objeto):
-        return objeto["alto"]
-    elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen alto.")
-    else:
-        print("El objeto pasado no tiene tipo.")
-    return None
-
-def setAlto(objeto, nuevoAlto):
-    if checkTipo(objeto) and type(nuevoAlto) == int and nuevoAlto >= 0:
-        objeto["alto"] = nuevoAlto
-    elif not(type(nuevoAlto) == int and nuevoAlto >= 0):
-        print("El alto debe ser un valor entero positivo")
-    elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen alto.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen radio.")
     else:
         print("El objeto pasado no tiene tipo.")
 
@@ -115,19 +95,21 @@ def setY(objeto, nuevoY):
     else:
         print("El objeto pasado no tiene tipo.")
 
-def getEstado(objeto):
+def getVelocidad(objeto):
     if checkTipo(objeto):
-        return objeto["estado"]
+        return objeto["velocidad"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen estado.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen velocidad.")
     else:
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setEstado(objeto, nuevoEstado):
-    if checkTipo(objeto):
-        objeto["estado"] = nuevoEstado
+def setVelocidad(objeto, nuevaVelocidad):
+    if checkTipo(objeto) and type(nuevaVelocidad) == int and nuevaVelocidad >= 0:
+        objeto["velocidad"] = nuevaVelocidad
+    elif not(type(nuevaVelocidad) == int and nuevaVelocidad >= 0):
+        print("La velocidad debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen estado.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen velocidad.")
     else:
         print("El objeto pasado no tiene tipo.")
