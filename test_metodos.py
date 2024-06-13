@@ -3,9 +3,7 @@ import plataforma
 import pelota
 
 def main():
-    # Crear objetos de cada clase y probar todos los métodos
 
-    # Bloque
     bloque = Bloque.constructor((255, 0, 0), 50, 50, 100, 100, "activo")
     print("Bloque:")
     print("Color del bloque:", Bloque.getColor(bloque))
@@ -16,7 +14,6 @@ def main():
     print("Estado del bloque:", Bloque.getEstado(bloque))
     print()
 
-    # Plataforma
     plataforma = Plataforma.constructor((0, 255, 0), 100, 20, 200, 200, 5)
     print("Plataforma:")
     print("Color de la plataforma:", Plataforma.getColor(plataforma))
