@@ -1,23 +1,25 @@
 def constructor(color, ancho, alto, x, y, velocidad):
     plataforma = {"tipo": "plataforma"}
     setColor(plataforma, color)
-    setAncho(plataforma, ancho)
     setAlto(plataforma, alto)
+    setAncho(plataforma, ancho)
     setX(plataforma, x)
     setY(plataforma, y)
     setVelocidad(plataforma, velocidad)
     return plataforma
 
 def checkTipo(objeto):
-    return True if "tipo" in objeto and objeto["tipo"] == "plataforma" else False
+    if "tipo" in objeto and objeto["tipo"] == "plataforma":
+        return True
+    return False
 
 def getColor(objeto):
     if checkTipo(objeto):
         return objeto["color"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen color.")
+        print(f"Objetos de tipo {objeto['tipo']} no tienen color.")
     else:
-        print("El objeto pasado no tiene tipo.")
+        print("El objeto pasado como parámetro no posee tipo.")
     return None
 
 def setColor(objeto, nuevo_color):
@@ -33,10 +35,9 @@ def setColor(objeto, nuevo_color):
     if checkTipo(objeto):
         objeto["color"] = nuevo_color
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene color.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen color.")
     else:
         print("El objeto pasado no tiene tipo.")
-    return objeto
 
 def getAncho(objeto):
     if checkTipo(objeto):
@@ -47,16 +48,15 @@ def getAncho(objeto):
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setAncho(objeto, nuevo_ancho):
-    if type(nuevo_ancho) != int or nuevo_ancho <= 0:
-        print("Valor invalido: El ancho tiene que ser un valor entero positivo.")
-    elif checkTipo(objeto):
-        objeto["ancho"] = nuevo_ancho
+def setAncho(objeto, nuevoAncho):
+    if checkTipo(objeto) and type(nuevoAncho) == int and nuevoAncho >= 0:
+        objeto["ancho"] = nuevoAncho
+    elif not(type(nuevoAncho) == int and nuevoAncho >= 0):
+        print("El ancho debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene ancho.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen ancho.")
     else:
         print("El objeto pasado no tiene tipo.")
-    return objeto
 
 def getAlto(objeto):
     if checkTipo(objeto):
@@ -67,56 +67,53 @@ def getAlto(objeto):
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setAlto(objeto, nuevo_alto):
-    if type(nuevo_alto) != int or nuevo_alto <= 0:
-        print("Valor invalido: El alto tiene que ser un valor entero positivo.")
-    elif checkTipo(objeto):
-        objeto["alto"] = nuevo_alto
+def setAlto(objeto, nuevoAlto):
+    if checkTipo(objeto) and type(nuevoAlto) == int and nuevoAlto >= 0:
+        objeto["alto"] = nuevoAlto
+    elif not(type(nuevoAlto) == int and nuevoAlto >= 0):
+        print("El alto debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene alto.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen alto.")
     else:
         print("El objeto pasado no tiene tipo.")
-    return objeto
 
 def getX(objeto):
     if checkTipo(objeto):
         return objeto["x"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen x.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen X.")
     else:
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setX(objeto, nuevo_x):
-    if type(nuevo_x) != int and type(nuevo_x) != float:
-        print("Valor invalido: X tiene que ser un valor numérico.")
-    elif checkTipo(objeto):
-        objeto["x"] = nuevo_x
+def setX(objeto, nuevoX):
+    if checkTipo(objeto) and type(nuevoX) == int and nuevoX >= 0:
+        objeto["x"] = nuevoX
+    elif not(type(nuevoX) == int and nuevoX >= 0):
+        print("El valor de X debe ser un entero positivo.")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene x.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen X.")
     else:
-        print("El objeto pasado no tiene x.")
-    return objeto
+        print("El objeto pasado no tiene tipo.")
 
 def getY(objeto):
     if checkTipo(objeto):
         return objeto["y"]
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tienen y.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen Y.")
     else:
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setY(objeto, nuevo_y):
-    if type(nuevo_y) != int and type(nuevo_y) != float:
-        print("Valor invalido: Y tiene que ser un valor numérico.")
-    elif checkTipo(objeto):
-        objeto["y"] = nuevo_y
+def setY(objeto, nuevoY):
+    if checkTipo(objeto) and type(nuevoY) == int and nuevoY >= 0:
+        objeto["y"] = nuevoY
+    elif not(type(nuevoY) == int and nuevoY >= 0):
+        print("El valor de Y debe ser un entero positivo.")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene y.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen Y.")
     else:
-        print("El objeto pasado no tiene x.")
-    return objeto
+        print("El objeto pasado no tiene tipo.")
 
 def getVelocidad(objeto):
     if checkTipo(objeto):
@@ -127,19 +124,12 @@ def getVelocidad(objeto):
         print("El objeto pasado no tiene tipo.")
     return None
 
-def setVelocidad(objeto, nuevo_velocidad):
-    if type(nuevo_velocidad) != int and type(nuevo_velocidad) != float:
-        print("Valor invalido: Velocidad tiene que ser un valor numérico.")
-    elif checkTipo(objeto):
-        objeto["velocidad"] = nuevo_velocidad
+def setVelocidad(objeto, nuevaVelocidad):
+    if checkTipo(objeto) and type(nuevaVelocidad) == int and nuevaVelocidad >= 0:
+        objeto["velocidad"] = nuevaVelocidad
+    elif not(type(nuevaVelocidad) == int and nuevaVelocidad >= 0):
+        print("La velocidad debe ser un valor entero positivo")
     elif "tipo" in objeto:
-        print("Objetos de tipo", objeto["tipo"], "no tiene velocidad.")
+        print("Objetos de tipo", objeto["tipo"], "no tienen velocidad.")
     else:
         print("El objeto pasado no tiene tipo.")
-
-def getTipo(objeto):
-    if "tipo" in objeto:
-        return objeto["tipo"]
-    else:
-        print("El objeto pasado no tiene tipo.")
-    return None
